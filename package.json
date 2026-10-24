@@ -1,0 +1,24 @@
+{
+  "name": "cuadreenv-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page promocional de CuadreEnv + API ligera de captura de prospectos (leads).",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n web,api -c blue,green \"vite\" \"node --watch --env-file-if-exists=.env server/index.js\"",
+    "dev:web": "vite",
+    "dev:api": "node --watch --env-file-if-exists=.env server/index.js",
+    "build": "vite build",
+    "start": "node --env-file-if-exists=.env server/index.js",
+    "serve": "node --env-file-if-exists=.env server/index.js",
+    "preview": "vite build && node --env-file-if-exists=.env server/index.js"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "concurrently": "^9.2.0",
+    "vite": "^7.1.0"
+  }
+}

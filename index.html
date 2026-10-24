@@ -1,0 +1,935 @@
+<!doctype html>
+<html lang="es-DO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>CuadreEnv — Punto de venta, caja y facturación NCF para tu negocio</title>
+    <meta
+      name="description"
+      content="CuadreEnv es el sistema POS en la nube para negocios dominicanos: ventas rápidas, cuadre de caja sin errores, inventario multi-almacén, facturación con NCF/ITBIS y POS móvil con escáner. Solicita tu demo gratis."
+    />
+    <meta name="theme-color" content="#0B132B" />
+    <meta property="og:image" content="/brand/cuadreEnv-logo-original.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/brand/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CuadreEnv — Cuadra tu caja sin estrés" />
+    <meta
+      property="og:description"
+      content="POS, caja, inventario y facturación NCF en un solo sistema. Funciona en PC, tablet y celular."
+    />
+    <meta property="og:locale" content="es_DO" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "CuadreEnv",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, Android, iOS, Windows",
+        "description": "Sistema POS en la nube con cuadre de caja, inventario y facturación NCF para República Dominicana.",
+        "inLanguage": "es-DO"
+      }
+    </script>
+  </head>
+  <body>
+    <!-- ================= SVG Icon Sprite ================= -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-logo" viewBox="0 0 24 24"><path d="M4 12.5 9 17.5 20 6.5" /></symbol>
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol>
+        <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></symbol>
+        <symbol id="i-x-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="m15 9-6 6M9 9l6 6" /></symbol>
+        <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></symbol>
+        <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7" /></symbol>
+        <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7M12 19V5" /></symbol>
+        <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1" /><circle cx="19" cy="21" r="1" /><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" /></symbol>
+        <symbol id="i-phone-device" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" /><path d="M12 18h.01" /></symbol>
+        <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" /><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" /></symbol>
+        <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /><path d="m3.3 7 8.7 5 8.7-5M12 22V12" /></symbol>
+        <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" /><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8M12 17.5v-11" /></symbol>
+        <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" /></symbol>
+        <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></symbol>
+        <symbol id="i-message" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></symbol>
+        <symbol id="i-wifi-off" viewBox="0 0 24 24"><path d="M12 20h.01M8.5 16.43a5 5 0 0 1 7 0M2 8.82a15 15 0 0 1 4.17-2.65M10.66 5c4.01-.36 8.14.9 11.34 3.76M16.85 11.25a10 10 0 0 1 2.22 1.68M5 13a10 10 0 0 1 5.24-2.76M2 2l20 20" /></symbol>
+        <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16" /><path d="M18 17V9M13 17V5M8 17v-3" /></symbol>
+        <symbol id="i-store" viewBox="0 0 24 24"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" /><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4M2 7h20M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-2-1 2.7 2.7 0 0 1-2 1 2.7 2.7 0 0 1-2-1 2.7 2.7 0 0 1-2 1 2.7 2.7 0 0 1-2-1 2.7 2.7 0 0 1-2 1 2.7 2.7 0 0 1-2-1 2.7 2.7 0 0 1-2 1 2 2 0 0 1-2-2V7" /></symbol>
+        <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></symbol>
+        <symbol id="i-pill" viewBox="0 0 24 24"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7ZM8.5 8.5l7 7" /></symbol>
+        <symbol id="i-utensils" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" /></symbol>
+        <symbol id="i-shirt" viewBox="0 0 24 24"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" /></symbol>
+        <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3" /><path d="M8.12 8.12 12 12M20 4 8.12 15.88" /><circle cx="6" cy="18" r="3" /><path d="M14.8 14.8 20 20" /></symbol>
+        <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14" /><circle cx="17" cy="18" r="2" /><circle cx="7" cy="18" r="2" /></symbol>
+        <symbol id="i-briefcase" viewBox="0 0 24 24"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /><rect width="20" height="14" x="2" y="6" rx="2" /></symbol>
+        <symbol id="i-basket" viewBox="0 0 24 24"><path d="m15 11-1 9M19 11l-4-7M2 11h20M3.5 11l1.6 7.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6l1.7-7.4M4.5 15.5h15M5 11l4-7M9 11l1 9" /></symbol>
+        <symbol id="i-building" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2" /><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01" /></symbol>
+        <symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></symbol>
+        <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14" /></symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" /></symbol>
+        <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12" /></symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></symbol>
+        <symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></symbol>
+        <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z" /><path d="M21 16v2a4 4 0 0 1-4 4h-5" /></symbol>
+        <symbol id="i-calendar" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></symbol>
+        <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></symbol>
+        <symbol id="i-scan" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 8v8M11 8v8M15 8v8" /></symbol>
+        <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" /><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65M22 12.65l-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" /></symbol>
+        <symbol id="i-printer" viewBox="0 0 24 24"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" /><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6" /><rect x="6" y="14" width="12" height="8" rx="1" /></symbol>
+        <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.14 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z" /></symbol>
+        <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8" /></symbol>
+        <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /><path d="M12 9v4M12 17h.01" /></symbol>
+        <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2" /><path d="M8 21h8M12 17v4" /></symbol>
+        <symbol id="i-sync" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /><path d="M21 3v5h-5M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /><path d="M8 16H3v5" /></symbol>
+        <symbol id="i-send" viewBox="0 0 24 24"><path d="M14.54 21.69a.5.5 0 0 0 .94-.03l6.5-19a.5.5 0 0 0-.64-.64l-19 6.5a.5.5 0 0 0-.03.94l7.93 3.18a2 2 0 0 1 1.11 1.11zM21.85 2.15 10.91 13.09" /></symbol>
+      </defs>
+    </svg>
+
+    <a class="skip-link" href="#main">Saltar al contenido</a>
+
+    <!-- ================= NAV ================= -->
+    <header class="nav" id="nav">
+      <div class="container nav-inner">
+        <a href="#inicio" class="brand" aria-label="CuadreEnv, ir al inicio">
+          <img
+            src="/brand/cuadreEnv-logo-white.png"
+            srcset="/brand/cuadreEnv-logo-white.png 1x, /brand/cuadreEnv-logo-white@2x.png 2x"
+            alt="CuadreEnv · Inventario • Control • Eficiencia"
+            class="brand-logo-img"
+            width="180"
+            height="62"
+          />
+        </a>
+
+        <nav aria-label="Navegación principal">
+          <ul class="nav-links">
+            <li><a href="#funciones">Funciones</a></li>
+            <li><a href="#como-funciona">Cómo funciona</a></li>
+            <li><a href="#modulos">Módulos</a></li>
+            <li><a href="#por-que">¿Por qué?</a></li>
+            <li><a href="#faq">Preguntas</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="#contacto" class="btn btn-primary btn-sm" id="nav-cta">
+            <span class="btn-text">Solicitar demo</span>
+            <svg class="icon icon-sm icon-arrow"><use href="#i-arrow-right" /></svg>
+          </a>
+          <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+            <svg class="icon"><use href="#i-menu" /></svg>
+          </button>
+        </div>
+      </div>
+      <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="mobile-menu-brand">
+        <img src="/brand/cuadreEnv-logo-white.png" alt="CuadreEnv" class="brand-logo-img" style="height: 38px; width: auto;" />
+      </div>
+      <a href="#funciones">Funciones</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#modulos">Módulos</a>
+      <a href="#por-que">¿Por qué CuadreEnv?</a>
+      <a href="#faq">Preguntas frecuentes</a>
+      <a href="#contacto" class="btn btn-primary">Solicitar demo gratis</a>
+    </div>
+
+    <main id="main">
+      <!-- ================= HERO ================= -->
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-bg" aria-hidden="true">
+          <span class="blob blob-1"></span>
+          <span class="blob blob-2"></span>
+          <span class="blob blob-3"></span>
+        </div>
+
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow reveal">
+              <span class="eyebrow-dot">Nuevo</span>
+              POS móvil con escáner de códigos desde tu celular
+            </span>
+            <h1 id="hero-title" class="reveal" style="--d: 80ms">
+              Cuadra tu caja <span class="text-gradient">sin estrés</span>. Vende sin límites.
+            </h1>
+            <p class="hero-lead reveal" style="--d: 160ms">
+              CuadreEnv une punto de venta, control de efectivo, inventario y facturación con NCF en un solo sistema
+              pensado para negocios dominicanos. Desde la PC, la tablet o tu celular.
+            </p>
+            <div class="hero-ctas reveal" style="--d: 240ms">
+              <a href="#contacto" class="btn btn-primary btn-lg" id="hero-cta-demo">
+                Solicitar demo gratis
+                <svg class="icon icon-arrow"><use href="#i-arrow-right" /></svg>
+              </a>
+              <a href="#funciones" class="btn btn-lg" id="hero-cta-features">Ver funciones</a>
+            </div>
+            <ul class="hero-trust reveal" style="--d: 320ms">
+              <li><svg class="icon icon-sm"><use href="#i-check-circle" /></svg> Comprobantes NCF e ITBIS</li>
+              <li><svg class="icon icon-sm"><use href="#i-check-circle" /></svg> Funciona sin internet</li>
+              <li><svg class="icon icon-sm"><use href="#i-check-circle" /></svg> Sin instalaciones</li>
+            </ul>
+          </div>
+
+          <!-- Mockup -->
+          <div class="hero-visual reveal" style="--d: 200ms" aria-hidden="true">
+            <div class="mock-window">
+              <div class="mock-bar">
+                <i></i><i></i><i></i>
+                <div class="mock-url"><svg class="icon" style="width: 10px; height: 10px"><use href="#i-lock" /></svg> app.cuadreenv.com/dashboard</div>
+              </div>
+              <div class="mock-body">
+                <div class="mock-side">
+                  <div class="mock-side-logo">
+                    <img src="/brand/cuadreEnv-signet-white.png" alt="CuadreEnv" style="width: 28px; height: 28px; object-fit: contain;" />
+                  </div>
+                  <span class="on"><svg class="icon"><use href="#i-chart" /></svg></span>
+                  <span><svg class="icon"><use href="#i-cart" /></svg></span>
+                  <span><svg class="icon"><use href="#i-wallet" /></svg></span>
+                  <span><svg class="icon"><use href="#i-box" /></svg></span>
+                  <span><svg class="icon"><use href="#i-users" /></svg></span>
+                </div>
+                <div class="mock-main">
+                  <div class="mock-head">
+                    <div>
+                      <strong>Buenos días, María 👋</strong>
+                      <small>Colmado La Esquina · Caja #1</small>
+                    </div>
+                    <span class="mock-pill">Caja abierta</span>
+                  </div>
+                  <div class="mock-kpis">
+                    <div class="mock-kpi"><small>Ventas de hoy</small><b>RD$ 48,250</b><em>▲ 12.4%</em></div>
+                    <div class="mock-kpi"><small>Facturas</small><b>132</b><em>▲ 8</em></div>
+                    <div class="mock-kpi"><small>Ticket prom.</small><b>RD$ 365</b><em>▲ 3.1%</em></div>
+                  </div>
+                  <div class="mock-chart">
+                    <div class="mock-chart-head">Ventas por hora <span>Hoy</span></div>
+                    <div class="bars">
+                      <i style="--h: 30%; --i: 0"></i><i style="--h: 45%; --i: 1"></i><i style="--h: 38%; --i: 2"></i>
+                      <i style="--h: 62%; --i: 3"></i><i class="hi" style="--h: 88%; --i: 4"></i><i style="--h: 70%; --i: 5"></i>
+                      <i style="--h: 52%; --i: 6"></i><i style="--h: 66%; --i: 7"></i><i class="hi" style="--h: 94%; --i: 8"></i>
+                      <i style="--h: 58%; --i: 9"></i><i style="--h: 40%; --i: 10"></i>
+                    </div>
+                  </div>
+                  <div class="mock-list">
+                    <div class="mock-row"><span><i class="tone-blue">B02</i>Factura consumidor final</span><b>RD$ 1,180.00</b></div>
+                    <div class="mock-row"><span><i class="tone-mint">B01</i>Crédito fiscal · Ferretería RD</span><b>RD$ 8,450.00</b></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mock-phone">
+              <div class="mock-phone-screen">
+                <div class="scan-view"></div>
+                <div class="phone-top">Escáner <span>● En vivo</span></div>
+                <div class="scan-frame"><div class="barcode"></div></div>
+                <div class="phone-toast">
+                  <i>✓</i>
+                  <div><b>Refresco 2L agregado</b><small>RD$ 95.00</small></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="float-card fc-1">
+              <span class="chip-icon tone-mint"><svg class="icon icon-sm"><use href="#i-check" /></svg></span>
+              <div><b>Caja cuadrada</b><small>Diferencia RD$ 0.00</small></div>
+            </div>
+            <div class="float-card fc-2">
+              <span class="chip-icon tone-blue"><svg class="icon icon-sm"><use href="#i-receipt" /></svg></span>
+              <div><b>NCF B0200000132</b><small>Emitido correctamente</small></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= INDUSTRIAS ================= -->
+      <section class="industries" aria-label="Tipos de negocio">
+        <div class="container">
+          <p>Diseñado para el día a día de los negocios dominicanos</p>
+        </div>
+        <div class="marquee">
+          <div class="marquee-track" id="marquee-track">
+            <span class="industry"><span class="chip-icon tone-blue"><svg class="icon"><use href="#i-basket" /></svg></span>Colmados</span>
+            <span class="industry"><span class="chip-icon tone-mint"><svg class="icon"><use href="#i-store" /></svg></span>Supermercados</span>
+            <span class="industry"><span class="chip-icon tone-amber"><svg class="icon"><use href="#i-wrench" /></svg></span>Ferreterías</span>
+            <span class="industry"><span class="chip-icon tone-rose"><svg class="icon"><use href="#i-pill" /></svg></span>Farmacias</span>
+            <span class="industry"><span class="chip-icon tone-violet"><svg class="icon"><use href="#i-utensils" /></svg></span>Restaurantes</span>
+            <span class="industry"><span class="chip-icon tone-blue"><svg class="icon"><use href="#i-shirt" /></svg></span>Tiendas de ropa</span>
+            <span class="industry"><span class="chip-icon tone-mint"><svg class="icon"><use href="#i-scissors" /></svg></span>Salones y barberías</span>
+            <span class="industry"><span class="chip-icon tone-amber"><svg class="icon"><use href="#i-truck" /></svg></span>Distribuidoras</span>
+            <span class="industry"><span class="chip-icon tone-ink"><svg class="icon"><use href="#i-briefcase" /></svg></span>Servicios</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= STATS ================= -->
+      <section class="stats" aria-label="CuadreEnv en números">
+        <div class="container">
+          <div class="stats-grid reveal">
+            <div class="stat"><b class="tabular"><span>&lt;</span><span class="counter" data-to="3">0</span> min</b><p>para cerrar y cuadrar la caja</p></div>
+            <div class="stat"><b class="tabular"><span class="counter" data-to="100">0</span><span>%</span></b><p>de facturas con NCF válido</p></div>
+            <div class="stat"><b class="tabular"><span class="counter" data-to="24">0</span>/7</b><p>acceso desde cualquier dispositivo</p></div>
+            <div class="stat"><b class="tabular"><span class="counter" data-to="0">0</span> papel</b><p>todo queda registrado y auditado</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= FUNCIONES (BENTO) ================= -->
+      <section class="section section-alt" id="funciones" aria-labelledby="funciones-title">
+        <div class="container">
+          <div class="section-head center reveal">
+            <span class="section-tag">Funciones</span>
+            <h2 id="funciones-title">Todo lo que tu negocio necesita, <span class="text-gradient">nada que sobre</span></h2>
+            <p>Herramientas pensadas para vender rápido, controlar cada peso y tomar decisiones con datos reales.</p>
+          </div>
+
+          <div class="bento">
+            <article class="card card-feature span-4 reveal">
+              <div>
+                <span class="chip-icon tone-blue"><svg class="icon icon-lg"><use href="#i-zap" /></svg></span>
+                <h3>Punto de venta ultra rápido</h3>
+                <p>Cobra en segundos con lector de códigos, atajos de teclado, favoritos y búsqueda instantánea. Vende por unidad, paquete o fracción y aplica descuentos sin complicaciones.</p>
+                <div class="card-tags"><span>Lector de barras</span><span>Atajos de teclado</span><span>Ventas en espera</span></div>
+              </div>
+              <div class="mini-pos" aria-hidden="true">
+                <div class="mini-pos-row"><span>2 × Arroz Selecto 5lb</span><b>RD$ 590.00</b></div>
+                <div class="mini-pos-row"><span>1 × Aceite Crisol 1L</span><b>RD$ 315.00</b></div>
+                <div class="mini-pos-row"><span>6 × Refresco 2L</span><b>RD$ 570.00</b></div>
+                <div class="mini-pos-row"><span>ITBIS 18%</span><b>RD$ 265.50</b></div>
+                <div class="mini-pos-total"><span>Total a cobrar</span><b>RD$ 1,740.50</b></div>
+                <div class="kbd-row"><kbd>F2</kbd><kbd>Buscar</kbd><kbd>F9</kbd><kbd>Cobrar</kbd><kbd>Esc</kbd></div>
+              </div>
+            </article>
+
+            <article class="card span-2 reveal" style="--d: 80ms">
+              <span class="chip-icon tone-mint"><svg class="icon icon-lg"><use href="#i-wallet" /></svg></span>
+              <h3>Cuadre de caja exacto</h3>
+              <p>Apertura, entradas, salidas y cierre con conteo guiado. El sistema te dice al instante si sobra o falta.</p>
+              <div class="cash-visual" aria-hidden="true">
+                <div class="cash-line"><span>Esperado</span><b>RD$ 32,480</b></div>
+                <div class="cash-line"><span>Contado</span><b>RD$ 32,480</b></div>
+                <div class="cash-line ok"><span>✓ Diferencia</span><b>RD$ 0.00</b></div>
+              </div>
+            </article>
+
+            <article class="card span-2 reveal">
+              <span class="chip-icon tone-violet"><svg class="icon icon-lg"><use href="#i-phone-device" /></svg></span>
+              <h3>POS móvil con escáner</h3>
+              <p>Instálalo como app en tu celular y escanea productos con la cámara. Ideal para vender en el pasillo o en la calle.</p>
+              <div class="card-tags"><span>Android</span><span>iPhone</span><span>Tablet</span></div>
+            </article>
+
+            <article class="card span-2 reveal" style="--d: 80ms">
+              <span class="chip-icon tone-blue"><svg class="icon icon-lg"><use href="#i-receipt" /></svg></span>
+              <h3>Facturación con NCF</h3>
+              <p>Comprobantes B01, B02, notas de crédito, ITBIS calculado automáticamente y secuencias controladas.</p>
+              <div class="card-tags"><span>B01 · B02</span><span>Notas de crédito</span><span>RNC</span></div>
+            </article>
+
+            <article class="card span-2 reveal" style="--d: 160ms">
+              <span class="chip-icon tone-amber"><svg class="icon icon-lg"><use href="#i-box" /></svg></span>
+              <h3>Inventario multi-almacén</h3>
+              <p>Stock en tiempo real por almacén, unidades de medida, empaques y alertas de productos agotándose.</p>
+              <div class="card-tags"><span>Kardex</span><span>Transferencias</span><span>Alertas</span></div>
+            </article>
+
+            <article class="card card-dark span-3 reveal">
+              <span class="chip-icon" style="background: rgba(255, 255, 255, 0.08); color: #93c5fd"><svg class="icon icon-lg"><use href="#i-shield" /></svg></span>
+              <h3>Guardián antifraude en tiempo real</h3>
+              <p>Recibe alertas al instante cuando ocurre algo fuera de lo normal: anulaciones, descuentos altos o diferencias de caja.</p>
+              <div class="alert-feed" aria-hidden="true">
+                <div class="alert-item"><i style="background: #f59e0b"></i><b>Descuento de 35% aplicado</b><small>hace 2 min</small></div>
+                <div class="alert-item"><i style="background: #ef4444"></i><b>Factura anulada · Caja #2</b><small>hace 8 min</small></div>
+                <div class="alert-item"><i style="background: #10b981"></i><b>Cierre de caja sin diferencias</b><small>hace 1 h</small></div>
+              </div>
+            </article>
+
+            <article class="card span-3 reveal" style="--d: 80ms">
+              <span class="chip-icon tone-mint"><svg class="icon icon-lg"><use href="#i-users" /></svg></span>
+              <h3>Clientes y cuentas por cobrar</h3>
+              <p>Vende a crédito con control: límites, abonos, estados de cuenta y recordatorios. Comparte facturas y recibos por WhatsApp en un toque.</p>
+              <div class="card-tags"><span>Crédito</span><span>Abonos</span><span>WhatsApp</span><span>Ticket térmico</span></div>
+            </article>
+
+            <article class="card span-2 reveal">
+              <span class="chip-icon tone-rose"><svg class="icon icon-lg"><use href="#i-wifi-off" /></svg></span>
+              <h3>Sigue vendiendo sin internet</h3>
+              <p>Si se cae la conexión, el POS sigue funcionando y sincroniza todo cuando vuelve.</p>
+            </article>
+
+            <article class="card span-2 reveal" style="--d: 80ms">
+              <span class="chip-icon tone-blue"><svg class="icon icon-lg"><use href="#i-chart" /></svg></span>
+              <h3>Reportes que se entienden</h3>
+              <p>Ventas, utilidad, productos estrella y desempeño por cajero en paneles claros.</p>
+            </article>
+
+            <article class="card span-2 reveal" style="--d: 160ms">
+              <span class="chip-icon tone-violet"><svg class="icon icon-lg"><use href="#i-layers" /></svg></span>
+              <h3>Usuarios y permisos</h3>
+              <p>Roles para dueño, administrador y cajero. Cada quien ve solo lo que le corresponde.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CÓMO FUNCIONA ================= -->
+      <section class="section" id="como-funciona" aria-labelledby="como-title">
+        <div class="container">
+          <div class="section-head center reveal">
+            <span class="section-tag">Cómo funciona</span>
+            <h2 id="como-title">Empieza a vender en 3 pasos</h2>
+            <p>Nosotros nos encargamos de la configuración. Tú solo te enfocas en tu negocio.</p>
+          </div>
+          <div class="steps">
+            <div class="step reveal">
+              <div class="step-num">1</div>
+              <h3>Cuéntanos de tu negocio</h3>
+              <p>Llena el formulario en menos de 2 minutos. Te contactamos para entender lo que necesitas.</p>
+            </div>
+            <div class="step reveal" style="--d: 120ms">
+              <div class="step-num">2</div>
+              <h3>Configuramos todo por ti</h3>
+              <p>Creamos tu empresa, cargamos tus productos, tu logo, tus NCF y capacitamos a tu equipo.</p>
+            </div>
+            <div class="step reveal" style="--d: 240ms">
+              <div class="step-num">3</div>
+              <h3>Vende desde el primer día</h3>
+              <p>Abre tu caja, factura y cuadra al final del día. Con soporte cercano cuando lo necesites.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= MÓDULOS (TABS) ================= -->
+      <section class="section section-alt" id="modulos" aria-labelledby="modulos-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="section-tag">Módulos</span>
+            <h2 id="modulos-title">Un sistema, todo tu negocio conectado</h2>
+            <p>Cada módulo comparte la misma información en tiempo real. Sin hojas de cálculo, sin duplicar trabajo.</p>
+          </div>
+
+          <div class="tabs reveal">
+            <div class="tab-list" role="tablist" aria-label="Módulos de CuadreEnv">
+              <button class="tab-btn" role="tab" id="tab-ventas" aria-controls="panel-ventas" aria-selected="true">
+                <span class="chip-icon tone-blue"><svg class="icon"><use href="#i-cart" /></svg></span>
+                <div><b>Ventas</b><span>POS de escritorio y móvil, cotizaciones y devoluciones.</span></div>
+              </button>
+              <button class="tab-btn" role="tab" id="tab-caja" aria-controls="panel-caja" aria-selected="false" tabindex="-1">
+                <span class="chip-icon tone-mint"><svg class="icon"><use href="#i-wallet" /></svg></span>
+                <div><b>Caja</b><span>Turnos, movimientos de efectivo y cierres auditados.</span></div>
+              </button>
+              <button class="tab-btn" role="tab" id="tab-inventario" aria-controls="panel-inventario" aria-selected="false" tabindex="-1">
+                <span class="chip-icon tone-amber"><svg class="icon"><use href="#i-box" /></svg></span>
+                <div><b>Inventario</b><span>Almacenes, entradas, transferencias y conteos.</span></div>
+              </button>
+              <button class="tab-btn" role="tab" id="tab-facturacion" aria-controls="panel-facturacion" aria-selected="false" tabindex="-1">
+                <span class="chip-icon tone-violet"><svg class="icon"><use href="#i-file" /></svg></span>
+                <div><b>Facturación</b><span>NCF, ITBIS, notas de crédito y diseño con tu logo.</span></div>
+              </button>
+            </div>
+
+            <div>
+              <div class="tab-panel" role="tabpanel" id="panel-ventas" aria-labelledby="tab-ventas">
+                <div class="panel-grid">
+                  <div>
+                    <h3>Vende más rápido en cualquier pantalla</h3>
+                    <p>Un POS pensado para la velocidad del mostrador y la movilidad del celular.</p>
+                    <ul class="check-list">
+                      <li><svg class="icon"><use href="#i-check-circle" /></svg>Escaneo con pistola lectora o con la cámara del celular</li>
+                      <li><svg class="icon"><use href="#i-check-circle" /></svg>Pagos mixtos: efectivo, tarjeta, transferencia y crédito</li>
+                      <li><svg class="icon"><use href="#i-check-circle" /></svg>Cálculo de devuelta automático y ventas en espera</li>
+                      <li><svg class="icon"><use href="#i-check-circle" /></svg>Ticket térmico de 58/80 mm o envío por WhatsApp</li>
+                    </ul>
+                  </div>
+                  <div class="panel-visual" aria-hidden="true">
+                    <div class="pv-row"><span><span class="chip-icon tone-blue" style="width: 34px; height: 34px"><svg class="icon icon-sm"><use href="#i-scan" /></svg></span><span>Código 7460123…<small>Detectado por cámara</small></span></span><span class="pv-badge info">+1</span></div>
+                    <div class="pv-row"><span>Efectivo recibido</span><b>RD$ 2,000.00</b></div>
+                    <div class="pv-row"><span>Total</span><b>RD$ 1,740.50</b></div>
+                    <div class="pv-row" style="background: var(--mint-50); border-color: var(--mint-100)"><span style="color: var(--mint-700)">Devuelta</span><b style="color: var(--mint-700)">RD$ 259.50</b></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-panel" role="tabpanel" id="panel-caja" aria-labelledby="tab-caja" hidden>
+                <div class="panel-grid">
+                  <div>
+                    <h3>Cada peso, en su lugar</h3>
+                    <p>Controla turnos y cajeros con trazabilidad completa de cada movimiento.</p>
+                    <ul class="check-list">
+                      <li><svg class="icon"><use href="#i-check-circle" /></svg>Apertura con fondo inicial y cierre con conteo por denominación</li>
+                      <li><svg class="icon"><use href="#i-check-circle" /></svg>Entradas y salidas de efectivo con motivo y responsable</li>
+                      <li><svg class="icon"><use href="#i-check-circle" /></svg>Diferencias detectadas al instante y reportadas al dueño</li>
+                      <li><svg class="icon"><use href="#i-check-circle" /></svg>Historial de cierres para auditoría</li>
+                    </ul>
+                  </div>
+                  <div class="panel-visual" aria-hidden="true">
+                    <div class="pv-row"><span>Fondo inicial<small>08:00 a. m. · Ana P.</small></span><b>RD$ 5,000</b></div>
+                    <div class="pv-row"><span>Ventas en efectivo</span><b>RD$ 29,980</b></div>
+                    <div class="pv-row"><span>Salida · Pago suplidor</span><b>− RD$ 2,500</b></div>
+                    <div class="pv-row"><span>Cierre de turno</span><span class="pv-badge ok">Cuadrada ✓</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-panel" role="tabpanel" id="panel-inventario" aria-labelledby="tab-inventario" hidden>
+                <div class="panel-grid">
+                  <div>
+                    <h3>Inventario que se actualiza solo</h3>
+                    <p>Cada venta descuenta del almacén correcto, en la unidad correcta.</p>
+                    <ul class="check-list">
+                      <li><svg class="icon"><use href="#i-check-circle" /></svg>Múltiples almacenes y sucursales</li>
+                      <li><svg class="icon"><use href="#i-check-circle" /></svg>Unidades de medida y empaques (caja, fardo, unidad)</li>
+                      <li><svg class="icon"><use href="#i-check-circle" /></svg>Entradas de mercancía con costo y kardex</li>
+                      <li><svg class="icon"><use href="#i-check-circle" /></svg>Alertas de stock mínimo y planillas de códigos de barra</li>
+                    </ul>
+                  </div>
+                  <div class="panel-visual" aria-hidden="true">
+                    <div class="pv-row"><span>Arroz Selecto 5lb<small>Almacén principal</small></span><span><span class="pv-progress"><i style="--w: 78%"></i></span></span></div>
+                    <div class="pv-row"><span>Aceite Crisol 1L<small>Almacén principal</small></span><span><span class="pv-progress"><i style="--w: 54%"></i></span></span></div>
+                    <div class="pv-row"><span>Refresco 2L<small>Sucursal Norte</small></span><span><span class="pv-progress"><i class="low" style="--w: 14%"></i></span></span></div>
+                    <div class="pv-row"><span>Stock bajo</span><span class="pv-badge warn">3 productos</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-panel" role="tabpanel" id="panel-facturacion" aria-labelledby="tab-facturacion" hidden>
+                <div class="panel-grid">
+                  <div>
+                    <h3>Facturas en regla, con tu marca</h3>
+                    <p>Cumple con los comprobantes fiscales sin pensar en ello.</p>
+                    <ul class="check-list">
+                      <li><svg class="icon"><use href="#i-check-circle" /></svg>Secuencias NCF B01, B02 y notas de crédito controladas</li>
+                      <li><svg class="icon"><use href="#i-check-circle" /></svg>ITBIS calculado por producto, exentos incluidos</li>
+                      <li><svg class="icon"><use href="#i-check-circle" /></svg>Tu logo, RNC, dirección y mensaje en cada factura</li>
+                      <li><svg class="icon"><use href="#i-check-circle" /></svg>Alertas antes de que se agote una secuencia</li>
+                    </ul>
+                  </div>
+                  <div class="panel-visual" aria-hidden="true">
+                    <div class="pv-row"><span>B01 · Crédito fiscal<small>Quedan 1,240</small></span><span class="pv-badge ok">Activa</span></div>
+                    <div class="pv-row"><span>B02 · Consumidor final<small>Quedan 86</small></span><span class="pv-badge warn">Por agotarse</span></div>
+                    <div class="pv-row"><span>B04 · Nota de crédito<small>Quedan 410</small></span><span class="pv-badge ok">Activa</span></div>
+                    <div class="pv-row"><span>ITBIS del mes</span><b>RD$ 84,320.00</b></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ANTES VS DESPUÉS ================= -->
+      <section class="section" id="por-que" aria-labelledby="porque-title">
+        <div class="container">
+          <div class="section-head center reveal">
+            <span class="section-tag">¿Por qué CuadreEnv?</span>
+            <h2 id="porque-title">Deja atrás la libreta y el estrés del cierre</h2>
+            <p>Así cambia el día a día cuando todo tu negocio está en un solo lugar.</p>
+          </div>
+          <div class="compare">
+            <div class="compare-col compare-before reveal">
+              <h3><span class="chip-icon tone-ink"><svg class="icon"><use href="#i-x-circle" /></svg></span>Sin un sistema</h3>
+              <ul>
+                <li><svg class="icon"><use href="#i-x-circle" /></svg>Cierres de caja largos que casi nunca cuadran</li>
+                <li><svg class="icon"><use href="#i-x-circle" /></svg>No sabes cuánto inventario tienes realmente</li>
+                <li><svg class="icon"><use href="#i-x-circle" /></svg>Facturas con NCF hechas a mano o en Excel</li>
+                <li><svg class="icon"><use href="#i-x-circle" /></svg>Fiaos anotados en una libreta que se pierde</li>
+                <li><svg class="icon"><use href="#i-x-circle" /></svg>Tienes que estar presente para controlar</li>
+              </ul>
+            </div>
+            <div class="compare-col compare-after reveal" style="--d: 120ms">
+              <h3><span class="chip-icon" style="background: rgba(16, 185, 129, 0.15); color: #34d399"><svg class="icon"><use href="#i-check-circle" /></svg></span>Con CuadreEnv</h3>
+              <ul>
+                <li><svg class="icon"><use href="#i-check-circle" /></svg>Cierre guiado en minutos con diferencia calculada</li>
+                <li><svg class="icon"><use href="#i-check-circle" /></svg>Stock en tiempo real por almacén y sucursal</li>
+                <li><svg class="icon"><use href="#i-check-circle" /></svg>Comprobantes fiscales automáticos y ordenados</li>
+                <li><svg class="icon"><use href="#i-check-circle" /></svg>Cuentas por cobrar con abonos y estados de cuenta</li>
+                <li><svg class="icon"><use href="#i-check-circle" /></svg>Alertas en tu celular estés donde estés</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= FAQ ================= -->
+      <section class="section section-alt" id="faq" aria-labelledby="faq-title">
+        <div class="container faq-wrap">
+          <div class="faq-aside reveal">
+            <div class="section-head">
+              <span class="section-tag">Preguntas frecuentes</span>
+              <h2 id="faq-title">¿Tienes dudas? Te respondemos</h2>
+              <p>Lo que más nos preguntan los dueños de negocio antes de empezar.</p>
+            </div>
+            <div class="help-card">
+              <span class="chip-icon tone-blue"><svg class="icon"><use href="#i-headset" /></svg></span>
+              <div>
+                <b>¿No encuentras tu respuesta?</b>
+                <a href="#contacto">Escríbenos y te ayudamos →</a>
+              </div>
+            </div>
+          </div>
+          <div class="faq-list">
+            <details class="faq-item reveal" open>
+              <summary>¿Necesito instalar algo en mi computadora?<svg class="icon"><use href="#i-plus" /></svg></summary>
+              <p>No. CuadreEnv funciona desde el navegador en PC, tablet o celular. Si quieres, puedes instalarlo como aplicación (PWA) con un clic para abrirlo más rápido y usarlo sin conexión.</p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>¿Qué pasa si se va el internet?<svg class="icon"><use href="#i-plus" /></svg></summary>
+              <p>El punto de venta sigue funcionando en modo sin conexión. Las ventas se guardan en el dispositivo y se sincronizan automáticamente cuando vuelve la conexión.</p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>¿Cumple con los comprobantes fiscales (NCF)?<svg class="icon"><use href="#i-plus" /></svg></summary>
+              <p>Sí. Manejas tus secuencias de NCF (B01, B02, notas de crédito y más), el ITBIS se calcula automáticamente y el sistema te avisa antes de que una secuencia se agote.</p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>¿Puedo usar mi impresora térmica y lector de códigos?<svg class="icon"><use href="#i-plus" /></svg></summary>
+              <p>Sí. Es compatible con impresoras térmicas de 58 y 80 mm y con lectores de código de barras USB o Bluetooth. También puedes escanear con la cámara del celular.</p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>¿Me ayudan a cargar mis productos y configurar todo?<svg class="icon"><use href="#i-plus" /></svg></summary>
+              <p>Claro. Durante la implementación configuramos tu empresa, tu logo, tus NCF, tus usuarios y te ayudamos a cargar tu catálogo. También capacitamos a tu equipo.</p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>¿Puedo manejar varias sucursales o cajas?<svg class="icon"><use href="#i-plus" /></svg></summary>
+              <p>Sí. Puedes tener múltiples almacenes, sucursales y cajas, con usuarios y permisos por rol, y ver todo consolidado desde tu panel.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CONTACTO / SOPORTE ================= -->
+      <section class="section contact" id="contacto" aria-labelledby="contacto-title">
+        <div class="container contact-grid">
+          <div class="reveal">
+            <span class="section-tag">Solicita tu demo</span>
+            <h2 id="contacto-title">Cuéntanos de tu negocio y te contactamos</h2>
+            <p class="contact-lead">Un asesor revisará tu caso y te mostrará cómo CuadreEnv se adapta a tu forma de trabajar. Sin compromiso.</p>
+            <ul class="perks">
+              <li>
+                <span class="chip-icon"><svg class="icon"><use href="#i-calendar" /></svg></span>
+                <div><b>Demo personalizada</b><span>Te mostramos el sistema con ejemplos de tu tipo de negocio.</span></div>
+              </li>
+              <li>
+                <span class="chip-icon"><svg class="icon"><use href="#i-sparkles" /></svg></span>
+                <div><b>Implementación acompañada</b><span>Configuración, carga de productos y capacitación incluidas.</span></div>
+              </li>
+              <li>
+                <span class="chip-icon"><svg class="icon"><use href="#i-lock" /></svg></span>
+                <div><b>Tus datos están seguros</b><span>Solo usamos tu información para contactarte sobre CuadreEnv.</span></div>
+              </li>
+            </ul>
+            <span class="response-badge"><svg class="icon icon-sm"><use href="#i-clock" /></svg> Respondemos en menos de 24 horas laborables</span>
+          </div>
+
+          <div class="form-card reveal" style="--d: 120ms">
+            <form id="lead-form" novalidate aria-describedby="form-status">
+              <ol class="stepper" id="stepper" aria-label="Progreso del formulario">
+                <li class="is-current"><div class="stepper-bar"><i></i></div><div class="stepper-label"><em>1</em><span>Tus datos</span></div></li>
+                <li><div class="stepper-bar"><i></i></div><div class="stepper-label"><em>2</em><span>Tu negocio</span></div></li>
+                <li><div class="stepper-bar"><i></i></div><div class="stepper-label"><em>3</em><span>Lo que necesitas</span></div></li>
+              </ol>
+
+              <!-- Honeypot anti-bots -->
+              <div class="hp-field" aria-hidden="true">
+                <label for="website">No llenar</label>
+                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+              </div>
+
+              <!-- Paso 1 -->
+              <fieldset class="form-step" data-step="1">
+                <legend>¿Con quién tenemos el gusto?</legend>
+                <p class="step-hint">Usaremos estos datos solo para contactarte.</p>
+                <div class="form-grid">
+                  <div class="field full">
+                    <label for="fullName">Nombre completo</label>
+                    <div class="input-wrap">
+                      <svg class="icon"><use href="#i-user" /></svg>
+                      <input class="input" id="fullName" name="fullName" type="text" autocomplete="name" placeholder="Ej. María Rodríguez" required />
+                    </div>
+                    <span class="field-error" id="fullName-error"></span>
+                  </div>
+                  <div class="field">
+                    <label for="email">Correo electrónico</label>
+                    <div class="input-wrap">
+                      <svg class="icon"><use href="#i-mail" /></svg>
+                      <input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="tu@negocio.com" required />
+                    </div>
+                    <span class="field-error" id="email-error"></span>
+                  </div>
+                  <div class="field">
+                    <label for="phone">Teléfono / WhatsApp</label>
+                    <div class="input-wrap">
+                      <svg class="icon"><use href="#i-phone" /></svg>
+                      <input class="input" id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="809-555-1234" required />
+                    </div>
+                    <span class="field-error" id="phone-error"></span>
+                  </div>
+                  <div class="field full">
+                    <label for="jobRole">Tu rol en el negocio <span class="opt">(opcional)</span></label>
+                    <select class="select" id="jobRole" name="jobRole">
+                      <option value="">Selecciona una opción</option>
+                      <option value="dueno">Dueño(a)</option>
+                      <option value="administrador">Administrador(a)</option>
+                      <option value="contador">Contador(a)</option>
+                      <option value="encargado">Encargado(a) de tienda</option>
+                      <option value="otro">Otro</option>
+                    </select>
+                  </div>
+                </div>
+              </fieldset>
+
+              <!-- Paso 2 -->
+              <fieldset class="form-step" data-step="2" hidden>
+                <legend>Háblanos de tu negocio</legend>
+                <p class="step-hint">Así preparamos una demo a tu medida.</p>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="companyName">Nombre del negocio</label>
+                    <div class="input-wrap">
+                      <svg class="icon"><use href="#i-building" /></svg>
+                      <input class="input" id="companyName" name="companyName" type="text" autocomplete="organization" placeholder="Ej. Colmado La Esquina" required />
+                    </div>
+                    <span class="field-error" id="companyName-error"></span>
+                  </div>
+                  <div class="field">
+                    <label for="rnc">RNC o Cédula <span class="opt">(opcional)</span></label>
+                    <input class="input" id="rnc" name="rnc" type="text" inputmode="numeric" placeholder="1-01-12345-6" />
+                    <span class="field-error" id="rnc-error"></span>
+                  </div>
+                  <div class="field full">
+                    <span class="label" id="businessType-label">Tipo de negocio</span>
+                    <div class="choice-grid" role="radiogroup" aria-labelledby="businessType-label">
+                      <label class="choice"><input type="radio" name="businessType" value="colmado" /><span><svg class="icon"><use href="#i-basket" /></svg>Colmado</span></label>
+                      <label class="choice"><input type="radio" name="businessType" value="supermercado" /><span><svg class="icon"><use href="#i-store" /></svg>Súper</span></label>
+                      <label class="choice"><input type="radio" name="businessType" value="ferreteria" /><span><svg class="icon"><use href="#i-wrench" /></svg>Ferretería</span></label>
+                      <label class="choice"><input type="radio" name="businessType" value="farmacia" /><span><svg class="icon"><use href="#i-pill" /></svg>Farmacia</span></label>
+                      <label class="choice"><input type="radio" name="businessType" value="restaurante" /><span><svg class="icon"><use href="#i-utensils" /></svg>Restaurante</span></label>
+                      <label class="choice"><input type="radio" name="businessType" value="tienda" /><span><svg class="icon"><use href="#i-shirt" /></svg>Tienda</span></label>
+                      <label class="choice"><input type="radio" name="businessType" value="salon" /><span><svg class="icon"><use href="#i-scissors" /></svg>Salón</span></label>
+                      <label class="choice"><input type="radio" name="businessType" value="distribuidora" /><span><svg class="icon"><use href="#i-truck" /></svg>Distribuidora</span></label>
+                      <label class="choice"><input type="radio" name="businessType" value="servicios" /><span><svg class="icon"><use href="#i-briefcase" /></svg>Servicios</span></label>
+                      <label class="choice"><input type="radio" name="businessType" value="otro" /><span><svg class="icon"><use href="#i-plus" /></svg>Otro</span></label>
+                    </div>
+                    <span class="field-error" id="businessType-error"></span>
+                  </div>
+                  <div class="field">
+                    <label for="branches">Sucursales</label>
+                    <select class="select" id="branches" name="branches">
+                      <option value="1">1 local</option>
+                      <option value="2-3">2 a 3</option>
+                      <option value="4-10">4 a 10</option>
+                      <option value="10+">Más de 10</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="registers">Cajas / usuarios</label>
+                    <select class="select" id="registers" name="registers">
+                      <option value="1">1</option>
+                      <option value="2-3">2 a 3</option>
+                      <option value="4-10">4 a 10</option>
+                      <option value="10+">Más de 10</option>
+                    </select>
+                  </div>
+                  <div class="field full">
+                    <label for="city">Ciudad / Provincia <span class="opt">(opcional)</span></label>
+                    <div class="input-wrap">
+                      <svg class="icon"><use href="#i-pin" /></svg>
+                      <input class="input" id="city" name="city" type="text" autocomplete="address-level2" placeholder="Ej. Santo Domingo, Santiago…" list="city-list" />
+                      <datalist id="city-list">
+                        <option value="Santo Domingo"></option>
+                        <option value="Santo Domingo Este"></option>
+                        <option value="Santo Domingo Norte"></option>
+                        <option value="Santiago"></option>
+                        <option value="La Romana"></option>
+                        <option value="San Pedro de Macorís"></option>
+                        <option value="Puerto Plata"></option>
+                        <option value="La Vega"></option>
+                        <option value="San Francisco de Macorís"></option>
+                        <option value="Punta Cana"></option>
+                      </datalist>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+              <!-- Paso 3 -->
+              <fieldset class="form-step" data-step="3" hidden>
+                <legend>¿Qué te gustaría resolver?</legend>
+                <p class="step-hint">Marca todo lo que te interese. Puedes cambiarlo luego.</p>
+                <div class="form-grid">
+                  <div class="field full">
+                    <span class="label" id="modules-label">Módulos de interés</span>
+                    <div class="chip-group" role="group" aria-labelledby="modules-label">
+                      <label class="chip-check"><input type="checkbox" name="modules" value="pos" /><span>Punto de venta</span></label>
+                      <label class="chip-check"><input type="checkbox" name="modules" value="pos-movil" /><span>POS móvil / escáner</span></label>
+                      <label class="chip-check"><input type="checkbox" name="modules" value="caja" /><span>Cuadre de caja</span></label>
+                      <label class="chip-check"><input type="checkbox" name="modules" value="inventario" /><span>Inventario</span></label>
+                      <label class="chip-check"><input type="checkbox" name="modules" value="facturacion" /><span>Facturación NCF</span></label>
+                      <label class="chip-check"><input type="checkbox" name="modules" value="cxc" /><span>Cuentas por cobrar</span></label>
+                      <label class="chip-check"><input type="checkbox" name="modules" value="servicios" /><span>Venta de servicios</span></label>
+                      <label class="chip-check"><input type="checkbox" name="modules" value="reportes" /><span>Reportes</span></label>
+                      <label class="chip-check"><input type="checkbox" name="modules" value="antifraude" /><span>Alertas antifraude</span></label>
+                      <label class="chip-check"><input type="checkbox" name="modules" value="multi-sucursal" /><span>Multi-sucursal</span></label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label for="currentSystem">¿Qué usas hoy?</label>
+                    <select class="select" id="currentSystem" name="currentSystem">
+                      <option value="">Selecciona una opción</option>
+                      <option value="ninguno">Nada / libreta</option>
+                      <option value="excel">Excel u hojas de cálculo</option>
+                      <option value="otro-sistema">Otro sistema POS</option>
+                      <option value="caja-registradora">Caja registradora</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="timeline">¿Cuándo quieres empezar?</label>
+                    <select class="select" id="timeline" name="timeline">
+                      <option value="">Selecciona una opción</option>
+                      <option value="inmediato">Lo antes posible</option>
+                      <option value="1-mes">En el próximo mes</option>
+                      <option value="1-3-meses">En 1 a 3 meses</option>
+                      <option value="explorando">Solo estoy explorando</option>
+                    </select>
+                  </div>
+                  <div class="field full">
+                    <span class="label" id="contactPref-label">¿Cómo prefieres que te contactemos?</span>
+                    <div class="segmented" role="radiogroup" aria-labelledby="contactPref-label">
+                      <label><input type="radio" name="contactPref" value="whatsapp" checked /><span><svg class="icon"><use href="#i-message" /></svg>WhatsApp</span></label>
+                      <label><input type="radio" name="contactPref" value="llamada" /><span><svg class="icon"><use href="#i-phone" /></svg>Llamada</span></label>
+                      <label><input type="radio" name="contactPref" value="email" /><span><svg class="icon"><use href="#i-mail" /></svg>Correo</span></label>
+                    </div>
+                  </div>
+                  <div class="field full">
+                    <label for="message">Cuéntanos más <span class="opt">(opcional)</span></label>
+                    <textarea class="textarea" id="message" name="message" maxlength="2000" placeholder="Ej. Tengo un colmado con 2 cajas y quiero controlar mejor el fiao y el inventario…"></textarea>
+                  </div>
+                  <div class="field full">
+                    <label class="consent">
+                      <input type="checkbox" id="consent" name="consent" />
+                      <span>Autorizo a CuadreEnv a contactarme sobre mi solicitud y acepto el tratamiento de mis datos para ese fin.</span>
+                    </label>
+                    <span class="field-error" id="consent-error"></span>
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="form-alert" id="form-status" role="alert">
+                <svg class="icon"><use href="#i-alert" /></svg><span id="form-status-text"></span>
+              </div>
+
+              <div class="form-nav" id="form-nav">
+                <span class="step-count" id="step-count">Paso 1 de 3</span>
+                <div class="form-nav-btns">
+                  <button type="button" class="btn" id="btn-prev" hidden>
+                    <svg class="icon icon-sm"><use href="#i-arrow-left" /></svg> Atrás
+                  </button>
+                  <button type="button" class="btn btn-primary" id="btn-next">
+                    Continuar <svg class="icon icon-sm icon-arrow"><use href="#i-arrow-right" /></svg>
+                  </button>
+                  <button type="submit" class="btn btn-primary" id="btn-submit" hidden>
+                    <span class="btn-label">Enviar solicitud</span>
+                    <svg class="icon icon-sm"><use href="#i-send" /></svg>
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <div class="form-success" id="form-success" hidden tabindex="-1">
+              <div class="success-icon"><svg class="icon"><path d="M20 6 9 17l-5-5" /></svg></div>
+              <h3>¡Gracias, <span id="success-name">te escribimos pronto</span>!</h3>
+              <p>Recibimos tu solicitud. Un asesor de CuadreEnv te contactará por <b id="success-channel">WhatsApp</b> en menos de 24 horas laborables.</p>
+              <div class="success-meta"><svg class="icon icon-sm"><use href="#i-file" /></svg> Solicitud <span id="success-id">#—</span></div>
+              <div>
+                <button type="button" class="btn" id="btn-reset">Enviar otra solicitud</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CTA FINAL ================= -->
+      <section class="cta-band" aria-labelledby="cta-title">
+        <div class="container">
+          <div class="cta-box reveal">
+            <div>
+              <h2 id="cta-title">Tu próximo cierre de caja puede ser el más fácil</h2>
+              <p>Únete a los negocios que ya venden, facturan y cuadran con CuadreEnv. Agenda tu demo hoy.</p>
+            </div>
+            <a href="#contacto" class="btn btn-lg" id="final-cta">
+              Quiero mi demo
+              <svg class="icon icon-arrow"><use href="#i-arrow-right" /></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="#inicio" class="brand" aria-label="CuadreEnv">
+              <img
+                src="/brand/cuadreEnv-logo-white.png"
+                srcset="/brand/cuadreEnv-logo-white.png 1x, /brand/cuadreEnv-logo-white@2x.png 2x"
+                alt="CuadreEnv · Inventario • Control • Eficiencia"
+                class="brand-logo-img"
+                width="190"
+                height="66"
+              />
+            </a>
+            <p>Punto de venta táctil, arqueo ciego, inventario multi-almacén y facturación NCF/DGII para negocios dominicanos.</p>
+          </div>
+          <div>
+            <h4>Producto</h4>
+            <ul>
+              <li><a href="#funciones">Funciones</a></li>
+              <li><a href="#modulos">Módulos</a></li>
+              <li><a href="#como-funciona">Cómo funciona</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Negocios</h4>
+            <ul>
+              <li><a href="#contacto">Colmados y súper</a></li>
+              <li><a href="#contacto">Ferreterías</a></li>
+              <li><a href="#contacto">Farmacias</a></li>
+              <li><a href="#contacto">Restaurantes</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Soporte</h4>
+            <ul>
+              <li><a href="#faq">Preguntas frecuentes</a></li>
+              <li><a href="#contacto">Solicitar demo</a></li>
+              <li><a href="#contacto">Contactar un asesor</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© <span id="year"></span> CuadreEnv. Todos los derechos reservados.</span>
+          <span>Hecho con ❤ en República Dominicana</span>
+        </div>
+      </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Volver arriba">
+      <svg class="icon"><use href="#i-arrow-up" /></svg>
+    </button>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
