@@ -406,7 +406,7 @@ if (form) {
     };
 
     try {
-      const response = await fetch('/api/leads', {
+      const response = await fetch('https://cuadreenv-api-86ef5ddf9650.herokuapp.com/v1/api/leads', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
