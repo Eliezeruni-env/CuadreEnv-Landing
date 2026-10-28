@@ -1071,12 +1071,12 @@ textarea {
 .phone-toast b {
   display: block;
   font-size: 10px;
-  color: var(--ink-900);
+  color: #0f172a;
   line-height: 1.2;
 }
 .phone-toast small {
   font-size: 9px;
-  color: var(--mint-700);
+  color: #047857;
   font-weight: 700;
 }
 @keyframes toast {
@@ -3297,23 +3297,23 @@ kbd {
 }
 
 /* Contact Section (Dark Mode Default) */
-.contact {
+:root:not([data-theme="light"]) .contact {
   background: #070d18 !important;
   color: #cbd5e1 !important;
 }
-.contact h2 {
+:root:not([data-theme="light"]) .contact h2 {
   color: #f8fafc !important;
 }
-.contact-lead {
+:root:not([data-theme="light"]) .contact-lead {
   color: #94a3b8 !important;
 }
-.perks b {
+:root:not([data-theme="light"]) .perks b {
   color: #f8fafc !important;
 }
-.perks span {
+:root:not([data-theme="light"]) .perks span {
   color: #8292a6 !important;
 }
-.perks .chip-icon {
+:root:not([data-theme="light"]) .perks .chip-icon {
   background: rgba(255, 255, 255, 0.06) !important;
   color: #93c5fd !important;
   border-color: rgba(255, 255, 255, 0.08) !important;
@@ -3862,28 +3862,34 @@ kbd {
 
 /* Light mode Contact Section */
 :root[data-theme="light"] .contact {
-  background: #f1f5f9;
-  color: #334155;
+  background: #ffffff !important;
+  color: #334155 !important;
   border-block: 1px solid #e2e8f0;
 }
 :root[data-theme="light"] .contact::before {
   background:
-    radial-gradient(600px 400px at 10% 10%, rgba(79, 70, 229, 0.08), transparent 70%),
-    radial-gradient(500px 360px at 95% 90%, rgba(225, 29, 72, 0.06), transparent 70%);
+    radial-gradient(600px 400px at 10% 10%, rgba(79, 70, 229, 0.05), transparent 70%),
+    radial-gradient(500px 360px at 95% 90%, rgba(225, 29, 72, 0.04), transparent 70%);
 }
 :root[data-theme="light"] .contact::after {
   background-image:
-    linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(15, 23, 42, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.02) 1px, transparent 1px);
 }
 :root[data-theme="light"] .contact h2 {
-  color: #0f172a;
+  color: #0f172a !important;
 }
 :root[data-theme="light"] .contact .section-tag {
   color: #4f46e5;
 }
 :root[data-theme="light"] .contact-lead {
-  color: #475569;
+  color: #475569 !important;
+}
+:root[data-theme="light"] .perks b {
+  color: #0f172a !important;
+}
+:root[data-theme="light"] .perks span {
+  color: #475569 !important;
 }
 :root[data-theme="light"] .perks .chip-icon {
   background: #e0e7ff;
