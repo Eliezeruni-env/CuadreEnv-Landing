@@ -3001,18 +3001,45 @@ kbd {
   color: #94a3b8;
 }
 
-/* Cards & Bento Grid */
-.bento-card, .module-card, .step, .stat-card, .faq-item, .contact-card {
+/* Cards, Bento Grid & Compare Cards (Dark Mode Default) */
+.card, .bento-card, .module-card, .step, .stat-card, .faq-item, .contact-card, .compare-col {
   background: var(--surface);
   border: 1px solid var(--line);
   box-shadow: var(--sh-sm);
   transition: all var(--t-fast) var(--ease);
 }
-.bento-card:hover, .module-card:hover, .step:hover, .stat-card:hover {
+.card:hover, .bento-card:hover, .module-card:hover, .step:hover, .stat-card:hover, .compare-col:hover {
   background: var(--surface-raised);
   border-color: rgba(99, 102, 241, 0.4);
   transform: translateY(-3px);
   box-shadow: var(--sh-md), 0 0 24px -6px rgba(79, 70, 229, 0.2);
+}
+.card-dark, .compare-after {
+  background: #0b1329 !important;
+  border-color: #1e293b !important;
+  color: #cbd5e1 !important;
+}
+.card-dark h3, .compare-after h3 {
+  color: #f8fafc !important;
+}
+.card-dark p {
+  color: #94a3b8 !important;
+}
+.card-dark .alert-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+.card-dark .alert-item b {
+  color: #f8fafc;
+}
+.card-dark .alert-item small {
+  color: #8292a6;
+}
+.compare-after li {
+  color: #e2e8f0 !important;
+}
+.compare-before li {
+  color: #94a3b8;
 }
 .section-alt {
   background: var(--surface-alt);
@@ -3416,36 +3443,102 @@ kbd {
 }
 
 /* Light mode Cards, Bento & Sections */
+:root[data-theme="light"] .card,
 :root[data-theme="light"] .bento-card,
 :root[data-theme="light"] .module-card,
 :root[data-theme="light"] .step,
 :root[data-theme="light"] .stat-card,
 :root[data-theme="light"] .faq-item,
-:root[data-theme="light"] .contact-card {
+:root[data-theme="light"] .contact-card,
+:root[data-theme="light"] .compare-col {
   background: #ffffff;
   border-color: #e2e8f0;
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+  color: #334155;
 }
+:root[data-theme="light"] .card:hover,
 :root[data-theme="light"] .bento-card:hover,
 :root[data-theme="light"] .module-card:hover,
 :root[data-theme="light"] .step:hover,
-:root[data-theme="light"] .stat-card:hover {
+:root[data-theme="light"] .stat-card:hover,
+:root[data-theme="light"] .compare-col:hover {
   background: #ffffff;
   border-color: #818cf8;
   box-shadow: 0 12px 28px -6px rgba(79, 70, 229, 0.12);
 }
+:root[data-theme="light"] .card h3,
 :root[data-theme="light"] .bento-card h3,
 :root[data-theme="light"] .module-card h3,
 :root[data-theme="light"] .step h3,
 :root[data-theme="light"] .stat-card b,
-:root[data-theme="light"] .faq-item summary {
+:root[data-theme="light"] .faq-item summary,
+:root[data-theme="light"] .compare-col h3 {
   color: #0f172a;
 }
+:root[data-theme="light"] .card p,
 :root[data-theme="light"] .bento-card p,
 :root[data-theme="light"] .module-card p,
 :root[data-theme="light"] .step p,
 :root[data-theme="light"] .faq-item p {
   color: #475569;
+}
+:root[data-theme="light"] .card-tags span {
+  background: #f1f5f9;
+  color: #475569;
+}
+/* Light mode specific: Guardián antifraude card and Con CuadreEnv card */
+:root[data-theme="light"] .card-dark {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #475569 !important;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+}
+:root[data-theme="light"] .card-dark:hover {
+  border-color: #818cf8 !important;
+}
+:root[data-theme="light"] .card-dark h3 {
+  color: #0f172a !important;
+}
+:root[data-theme="light"] .card-dark p {
+  color: #475569 !important;
+}
+:root[data-theme="light"] .card-dark .chip-icon {
+  background: #e0e7ff !important;
+  color: #4338ca !important;
+}
+:root[data-theme="light"] .card-dark .alert-item {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+:root[data-theme="light"] .card-dark .alert-item b {
+  color: #0f172a;
+}
+:root[data-theme="light"] .card-dark .alert-item small {
+  color: #64748b;
+}
+:root[data-theme="light"] .compare-before {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+:root[data-theme="light"] .compare-before li {
+  color: #64748b;
+}
+:root[data-theme="light"] .compare-after {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 8px 24px -4px rgba(16, 185, 129, 0.12);
+}
+:root[data-theme="light"] .compare-after::after {
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.12), transparent 70%);
+}
+:root[data-theme="light"] .compare-after h3 {
+  color: #0f172a !important;
+}
+:root[data-theme="light"] .compare-after li {
+  color: #1e293b !important;
+}
+:root[data-theme="light"] .compare-after li .icon {
+  color: #059669 !important;
 }
 :root[data-theme="light"] .section-head h2 {
   color: #0f172a;
