@@ -2664,6 +2664,45 @@ kbd {
 }
 
 @media (max-width: 760px) {
+  /* Prevent any horizontal page blowing */
+  html, body {
+    overflow-x: hidden;
+  }
+  .container {
+    padding-inline: 16px;
+  }
+  .section {
+    padding-block: clamp(40px, 8vw, 64px);
+  }
+  .hero {
+    padding-top: calc(var(--nav-h) + 24px);
+    padding-bottom: 48px;
+    overflow-x: clip;
+  }
+  .nav-inner {
+    padding-inline: 12px;
+  }
+  .brand-logo-img {
+    height: 36px;
+    max-width: 160px;
+  }
+  .nav-actions {
+    gap: 8px;
+  }
+  .nav-actions .btn-sm {
+    padding: 0 12px;
+    min-height: 36px;
+    font-size: 13px;
+  }
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+  }
+  .theme-toggle .icon {
+    width: 16px;
+    height: 16px;
+  }
+
   .stats-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -2682,9 +2721,12 @@ kbd {
   .card-feature {
     grid-template-columns: 1fr;
   }
+  .card {
+    padding: var(--s-6);
+  }
   .steps {
     grid-template-columns: 1fr;
-    gap: var(--s-10);
+    gap: var(--s-8);
   }
   .steps::before {
     display: none;
@@ -2706,53 +2748,208 @@ kbd {
   .cta-box p {
     margin-inline: auto;
   }
+
+  /* Hero Visual & Phone on Mobile */
+  .hero-visual {
+    margin: 20px auto 0;
+    max-width: 100%;
+    overflow: visible;
+  }
+  .mock-window {
+    transform: none !important;
+    border-radius: var(--r-lg);
+  }
+  .mock-body {
+    grid-template-columns: 48px 1fr;
+    min-height: auto;
+  }
+  .mock-side-logo {
+    padding: 8px 0;
+  }
+  .mock-head {
+    padding: 10px 14px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .mock-head h3 {
+    font-size: 14px;
+  }
+  .mock-content {
+    padding: 14px;
+  }
+  .mock-kpis {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .mock-kpi {
+    padding: 10px 12px;
+  }
+  .mock-kpi b {
+    font-size: 16px;
+  }
   .mock-phone {
-    width: 130px;
-    right: -6px;
-    bottom: -30px;
+    width: 120px;
+    right: 4px;
+    bottom: -24px;
+    animation: none;
   }
   .mock-phone-screen {
-    height: 236px;
+    height: 210px;
   }
   .scan-frame {
-    top: 54px;
-    height: 72px;
-    left: 12px;
-    right: 12px;
+    top: 48px;
+    height: 64px;
+    left: 8px;
+    right: 8px;
   }
   .fc-2 {
     display: none;
   }
   .fc-1 {
-    left: 0;
-    top: -30px;
+    left: 8px;
+    top: -18px;
+    padding: 6px 10px;
+    font-size: 11px;
+    animation: none;
   }
-  .mock-window {
-    transform: none;
+
+  /* Contact section and stepper */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .form-card {
+    padding: 20px 16px;
+  }
+  .stepper {
+    gap: 6px;
+    margin-bottom: var(--s-6);
   }
   .stepper-label span {
     display: none;
   }
+  .stepper-label em {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+  .form-nav {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+  .form-nav .step-count {
+    text-align: center;
+  }
+  .form-nav-btns {
+    margin-left: 0;
+    width: 100%;
+    display: flex;
+    gap: 8px;
+  }
+  .form-nav-btns .btn {
+    flex: 1;
+    justify-content: center;
+  }
+  .segmented {
+    grid-template-columns: 1fr;
+  }
+  .segmented span {
+    justify-content: center;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 20px;
+  }
 }
 
 @media (max-width: 480px) {
-  .mock-kpis {
-    grid-template-columns: 1fr 1fr;
+  .hero h1 {
+    font-size: 1.85rem;
+    line-height: 1.15;
   }
+  .hero-lead {
+    font-size: 14.5px;
+  }
+  .hero-ctas {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-ctas .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-trust {
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    font-size: 12px;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .stat {
+    border-top: 1px solid var(--line);
+    padding: 16px 0;
+  }
+  .stat:first-child {
+    border-top: none;
+  }
+  .stat::before {
+    display: none !important;
+  }
+
+  /* Mockup on small mobile */
+  .mock-kpis {
+    grid-template-columns: 1fr;
+  }
+  .mock-kpi:nth-child(2),
   .mock-kpi:nth-child(3) {
     display: none;
   }
   .mock-body {
-    grid-template-columns: 44px 1fr;
+    grid-template-columns: 40px 1fr;
   }
+  .mock-phone {
+    display: none;
+  }
+  .fc-1 {
+    position: static;
+    margin-bottom: 12px;
+    display: inline-flex;
+  }
+  .bars {
+    height: 70px;
+  }
+
+  /* Tab modules scroll on phone */
+  .tab-btn {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+  .tab-btn .chip-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Choice business grid */
+  .choice-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  .choice span {
+    padding: 10px 6px;
+    font-size: 11.5px;
+  }
+
+  /* Footer */
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 28px;
   }
-  .hero-ctas .btn {
-    width: 100%;
-  }
-  .form-nav .step-count {
-    display: none;
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
   }
 }
 
