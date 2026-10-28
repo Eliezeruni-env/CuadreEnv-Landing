@@ -1,6 +1,78 @@
 import './styles.css';
 
 // ==========================================================================
+// Theme Management (Modo Oscuro / Modo Claro)
+// ==========================================================================
+const THEME_STORAGE_KEY = 'cuadreenv_landing_theme';
+
+function getPreferredTheme() {
+  const saved = localStorage.getItem(THEME_STORAGE_KEY);
+  if (saved === 'light' || saved === 'dark') return saved;
+  return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+}
+
+function updateLogos(theme) {
+  const isLight = theme === 'light';
+  const logoWhite = '/brand/cuadreEnv-logo-white.png';
+  const logoOriginal = '/brand/cuadreEnv-logo.png';
+
+  const logoNav = document.getElementById('brand-logo-nav');
+  if (logoNav) {
+    logoNav.src = isLight ? logoOriginal : logoWhite;
+    logoNav.srcset = isLight ? `${logoOriginal} 1x, ${logoOriginal} 2x` : `${logoWhite} 1x, /brand/cuadreEnv-logo-white@2x.png 2x`;
+  }
+
+  const logoMobile = document.getElementById('brand-logo-mobile');
+  if (logoMobile) {
+    logoMobile.src = isLight ? logoOriginal : logoWhite;
+  }
+
+  const logoFooter = document.getElementById('brand-logo-footer');
+  if (logoFooter) {
+    logoFooter.src = isLight ? logoOriginal : logoWhite;
+    logoFooter.srcset = isLight ? `${logoOriginal} 1x, ${logoOriginal} 2x` : `${logoWhite} 1x, /brand/cuadreEnv-logo-white@2x.png 2x`;
+  }
+
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  if (themeMeta) {
+    themeMeta.setAttribute('content', isLight ? '#f8fafc' : '#070d18');
+  }
+}
+
+function applyTheme(theme, save = false) {
+  document.documentElement.setAttribute('data-theme', theme);
+  updateLogos(theme);
+  if (save) {
+    localStorage.setItem(THEME_STORAGE_KEY, theme);
+  }
+}
+
+// Inicializar tema inmediatamente
+const currentTheme = getPreferredTheme();
+applyTheme(currentTheme, false);
+
+// Escuchar cambios de preferencia del sistema si el usuario no ha forzado uno
+if (window.matchMedia) {
+  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+    if (!localStorage.getItem(THEME_STORAGE_KEY)) {
+      applyTheme(e.matches ? 'light' : 'dark', false);
+    }
+  });
+}
+
+// Configurar listeners de botones de toggle
+function toggleTheme() {
+  const active = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+  applyTheme(active, true);
+}
+
+const themeToggleNav = document.getElementById('theme-toggle');
+if (themeToggleNav) themeToggleNav.addEventListener('click', toggleTheme);
+
+const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
+
+// ==========================================================================
 // 1. Navbar Scroll Effect & Scroll Progress
 // ==========================================================================
 const nav = document.getElementById('nav');

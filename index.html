@@ -91,6 +91,8 @@
         <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2" /><path d="M8 21h8M12 17v4" /></symbol>
         <symbol id="i-sync" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /><path d="M21 3v5h-5M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /><path d="M8 16H3v5" /></symbol>
         <symbol id="i-send" viewBox="0 0 24 24"><path d="M14.54 21.69a.5.5 0 0 0 .94-.03l6.5-19a.5.5 0 0 0-.64-.64l-19 6.5a.5.5 0 0 0-.03.94l7.93 3.18a2 2 0 0 1 1.11 1.11zM21.85 2.15 10.91 13.09" /></symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
       </defs>
     </svg>
 
@@ -100,14 +102,18 @@
     <header class="nav" id="nav">
       <div class="container nav-inner">
         <a href="#inicio" class="brand" aria-label="CuadreEnv, ir al inicio">
-          <img
-            src="/brand/cuadreEnv-logo-white.png"
-            srcset="/brand/cuadreEnv-logo-white.png 1x, /brand/cuadreEnv-logo-white@2x.png 2x"
-            alt="CuadreEnv · Inventario • Control • Eficiencia"
-            class="brand-logo-img"
-            width="180"
-            height="62"
-          />
+          <picture>
+            <source srcset="/brand/cuadreEnv-logo.png" media="(prefers-color-scheme: light)" class="brand-logo-light-src" />
+            <img
+              src="/brand/cuadreEnv-logo-white.png"
+              srcset="/brand/cuadreEnv-logo-white.png 1x, /brand/cuadreEnv-logo-white@2x.png 2x"
+              alt="CuadreEnv · Inventario • Control • Eficiencia"
+              class="brand-logo-img"
+              id="brand-logo-nav"
+              width="180"
+              height="62"
+            />
+          </picture>
         </a>
 
         <nav aria-label="Navegación principal">
@@ -121,6 +127,10 @@
         </nav>
 
         <div class="nav-actions">
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema claro / oscuro" title="Cambiar tema">
+            <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun" /></svg>
+            <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon" /></svg>
+          </button>
           <a href="#contacto" class="btn btn-primary btn-sm" id="nav-cta">
             <span class="btn-text">Solicitar demo</span>
             <svg class="icon icon-sm icon-arrow"><use href="#i-arrow-right" /></svg>
@@ -135,7 +145,11 @@
 
     <div class="mobile-menu" id="mobile-menu">
       <div class="mobile-menu-brand">
-        <img src="/brand/cuadreEnv-logo-white.png" alt="CuadreEnv" class="brand-logo-img" style="height: 38px; width: auto;" />
+        <img src="/brand/cuadreEnv-logo-white.png" alt="CuadreEnv" class="brand-logo-img mobile-brand-logo" id="brand-logo-mobile" style="height: 38px; width: auto;" />
+        <button class="theme-toggle" id="theme-toggle-mobile" type="button" aria-label="Cambiar tema claro / oscuro" title="Cambiar tema">
+          <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun" /></svg>
+          <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon" /></svg>
+        </button>
       </div>
       <a href="#funciones">Funciones</a>
       <a href="#como-funciona">Cómo funciona</a>
@@ -887,6 +901,7 @@
                 srcset="/brand/cuadreEnv-logo-white.png 1x, /brand/cuadreEnv-logo-white@2x.png 2x"
                 alt="CuadreEnv · Inventario • Control • Eficiencia"
                 class="brand-logo-img"
+                id="brand-logo-footer"
                 width="190"
                 height="66"
               />
