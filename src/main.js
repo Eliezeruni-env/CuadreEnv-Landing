@@ -478,20 +478,43 @@ if (form) {
     };
 
     try {
+      const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+      const localUsmApiUrl = 'http://localhost:3000/api/leads';
       const defaultApiUrl = 'https://cuadreenv-api-86ef5ddf9650.herokuapp.com/v1/api/leads';
-      const apiUrl = import.meta.env?.VITE_API_URL
-        || (window.__API_BASE__ ? `${window.__API_BASE__}/api/leads` : null)
-        || (window.location.port === '8787' ? '/api/leads' : defaultApiUrl);
 
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
+      const candidateUrls = [];
+      if (import.meta.env?.VITE_API_URL) candidateUrls.push(import.meta.env.VITE_API_URL);
+      if (window.__API_BASE__) candidateUrls.push(`${window.__API_BASE__}/api/leads`);
+      if (isLocal) candidateUrls.push(localUsmApiUrl, '/api/leads');
+      candidateUrls.push(defaultApiUrl);
 
-      const result = await response.json();
+      let response = null;
+      let result = null;
+      let lastError = null;
+
+      for (const apiUrl of candidateUrls) {
+        try {
+          const res = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+          });
+
+          if (res.ok) {
+            response = res;
+            result = await res.json();
+            if (result && result.ok) break;
+          }
+        } catch (fetchErr) {
+          lastError = fetchErr;
+        }
+      }
+
+      if (!response && lastError) {
+        throw lastError;
+      }
 
       if (response.ok && result.ok) {
         // Success View
