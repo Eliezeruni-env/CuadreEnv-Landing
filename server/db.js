@@ -138,12 +138,14 @@ export function openDatabase(filePath) {
       return mapRow(getStmt.get(id));
     },
 
-    listLeads({ status, search, businessType, page = 1, pageSize = 20 }) {
+    listLeads({ status, excludeWon, search, businessType, page = 1, pageSize = 20 }) {
       const where = [];
       const params = {};
       if (status) {
         where.push('status = :status');
         params.status = status;
+      } else if (excludeWon) {
+        where.push("status != 'won'");
       }
       if (businessType) {
         where.push('business_type = :businessType');

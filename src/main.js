@@ -478,7 +478,8 @@ if (form) {
     };
 
     try {
-      const response = await fetch('https://cuadreenv-api-86ef5ddf9650.herokuapp.com/v1/api/leads', {
+      const apiBase = window.location.port === '8787' ? '' : (window.__API_BASE__ || 'http://localhost:8787');
+      const response = await fetch(`${apiBase}/api/leads`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -57,7 +57,7 @@ const MIME = {
 
 function applyCors(req, res) {
   const origin = req.headers.origin;
-  if (origin && CORS_ORIGINS.includes(origin)) {
+  if (origin && (CORS_ORIGINS.includes(origin) || /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin))) {
     res.setHeader('Access-Control-Allow-Origin', origin);
     res.setHeader('Vary', 'Origin');
     res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PATCH,OPTIONS');
@@ -174,7 +174,8 @@ function handleListLeads(req, res, url) {
   const q = url.searchParams;
   const result = repo.listLeads({
     status: q.get('status') || undefined,
-    search: q.get('q') || undefined,
+    excludeWon: q.get('excludeWon') === 'true' || q.get('excludeWon') === '1',
+    search: q.get('search') || q.get('q') || undefined,
     businessType: q.get('businessType') || undefined,
     page: Math.max(1, Number(q.get('page') || 1)),
     pageSize: Math.min(100, Math.max(1, Number(q.get('pageSize') || 20))),
