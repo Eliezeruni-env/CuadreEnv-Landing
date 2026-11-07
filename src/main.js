@@ -478,8 +478,12 @@ if (form) {
     };
 
     try {
-      const apiBase = window.location.port === '8787' ? '' : (window.__API_BASE__ || 'http://localhost:8787');
-      const response = await fetch(`${apiBase}/api/leads`, {
+      const defaultApiUrl = 'https://cuadreenv-api-86ef5ddf9650.herokuapp.com/v1/api/leads';
+      const apiUrl = import.meta.env?.VITE_API_URL
+        || (window.__API_BASE__ ? `${window.__API_BASE__}/api/leads` : null)
+        || (window.location.port === '8787' ? '/api/leads' : defaultApiUrl);
+
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
